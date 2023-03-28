@@ -37,8 +37,10 @@ param (
   $Unit = 'Metric'
 )
 
+Write-Output "The unit of measurement is set to $Unit."
+
 foreach ($cityId in $CityIds) {
   $cityWeatherDetails = Invoke-RestMethod -Method Get -Uri "https://api.openweathermap.org/data/2.5/weather?id=$cityId&APPID=$ApiKey&units=$Unit"
 
-  $cityWeatherDetails
+  Write-Output "It is currently $($cityWeatherDetails.main.temp) degrees in $($cityWeatherDetails.name) but if feels like $($cityWeatherDetails.main.feels_like) degrees."
 }
