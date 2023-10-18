@@ -1,3 +1,8 @@
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+  
 name: MSDO windows-latest
 on:
   push:
